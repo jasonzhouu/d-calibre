@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import FileForm from './FileForm';
-import booklist from './booklist.json'
 import {downloadFileFromIPFS} from './IPFS'
+import {getBookList} from './NEM';
+
+const booklist = getBookList();
 
 class App extends Component {
     constructor(props) {
@@ -11,16 +13,11 @@ class App extends Component {
             searchTerm: ""
         }
     }
-    getBookList = () => {
-        // TODO: use API of NEM to get book list
-        console.log('get book list from blockchain')
-    }
     putBookItem = () => {
         // TODO: use API of NEM to put a new book item
         console.log('put book item to blockchain')
     }
     search = () => {
-        // TODO: use Goodreads API "Find books by title, author, or ISBN" to search 
         console.log(this.state.searchTerm)
     }
     onChange = (event) => {
@@ -29,7 +26,6 @@ class App extends Component {
 
     render() {
         const {searchTerm, list} = this.state;
-        this.getBookList();
         return <div className="App">
             <form>
                 <input type="text" value={searchTerm} onChange={this.onChange} placeholder="Search" />
