@@ -10,12 +10,13 @@ class App extends Component {
             searchTerm: ""
         }
     }
-    onSearch = (event) => {
-        console.log(this.searchTerm)
+    search = () => {
+        // TODO: use Goodreads API "Find books by title, author, or ISBN" to search 
+        console.log(this.state.searchTerm)
     }
     downloadFile = (contentID)=> {
         // TODO: use IPFS API to download file
-        console.log(contentID)
+        console.log(`download file of content ID: ${contentID} `)
     }
     onChange = (event) => {
         this.setState({searchTerm: event.target.value})
@@ -24,8 +25,8 @@ class App extends Component {
         const {searchTerm, list} = this.state;
         return <div className="App">
             <form>
-                <input type="text" value={searchTerm} onChange={this.onChange} />
-                <button onClick={this.onSearch}>Search</button>
+                <input type="text" value={searchTerm} onChange={this.onChange} placeholder="Search" />
+                <button onClick={this.search} type="button">Search</button>
             </form>
             <table border="1">
                 <thead>
