@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FileForm from './FileForm';
-import {downloadFileFromIPFS} from './IPFS'
 import {getBookList} from './NEM';
+import Table from './Table';
 
 const booklist = getBookList();
 
@@ -34,25 +34,8 @@ class App extends Component {
                 <input type="text" value={searchTerm} onChange={this.onChange} placeholder="Search" />
                 <button onClick={this.search} type="button">Search</button>
             </form>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>ISBN</th>
-                        <th>content ID</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {searchResult.map(item => {
-                        return (
-                            <tr key={item.ISBN}>
-                                <td>{item.ISBN}</td>
-                                <td>{item.contentID}</td>
-                                <td><button onClick={()=>downloadFileFromIPFS(item.contentID)}>download</button></td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
+            
+            <Table searchResult={searchResult}></Table>
 
             <FileForm></FileForm>
         </div>

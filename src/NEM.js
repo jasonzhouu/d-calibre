@@ -7,7 +7,6 @@ const writeToNEM = (ISBN, contentID) => {
 
 const getBookList = () => {
     // TODO: use API
-    console.log("get from book list from NEM")
     return booklist;
 }
 
