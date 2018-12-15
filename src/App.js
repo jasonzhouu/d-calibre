@@ -10,6 +10,14 @@ class App extends Component {
             searchTerm: ""
         }
     }
+    getBookList = () => {
+        // TODO: use API of NEM to get book list
+        console.log('get book list from blockchain')
+    }
+    putBookItem = () => {
+        // TODO: use API of NEM to put a new book item
+        console.log('put book item to blockchain')
+    }
     search = () => {
         // TODO: use Goodreads API "Find books by title, author, or ISBN" to search 
         console.log(this.state.searchTerm)
@@ -23,6 +31,7 @@ class App extends Component {
     }
     render() {
         const {searchTerm, list} = this.state;
+        getBookList();
         return <div className="App">
             <form>
                 <input type="text" value={searchTerm} onChange={this.onChange} placeholder="Search" />
