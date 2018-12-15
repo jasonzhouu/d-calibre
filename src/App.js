@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FileForm from './FileForm';
 import {getBookList} from './NEM';
 import Table from './Table';
+import Form from './Form';
 
 const booklist = getBookList();
 
@@ -29,10 +30,7 @@ class App extends Component {
     render() {
         const {searchTerm, searchResult} = this.state;
         return <div className="App">
-            <form>
-                <input type="text" value={searchTerm} onChange={this.onChange} placeholder="Search" />
-                <button onClick={this.search} type="button">Search</button>
-            </form>
+            <Form searchTerm={searchTerm} onChange={this.onChange} search={this.search}></Form>
             
             <Table searchResult={searchResult}></Table>
 
