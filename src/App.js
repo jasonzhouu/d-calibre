@@ -17,7 +17,6 @@ class App extends Component {
     search = () => {
         let searchResult = booklist.filter(item => item.ISBN===this.state.searchTerm)
         this.setState({searchResult: searchResult})
-        // console.log(this.state.searchTerm)
     }
     onChange = (event) => {
         let searchTerm = event.target.value
