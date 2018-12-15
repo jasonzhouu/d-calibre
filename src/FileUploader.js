@@ -1,13 +1,11 @@
 import React from 'react';
-// import ipfsClient from 'ipfs-http-client';
 
-const FileUploader = () => {
+const FileUploader = ({getContentID}) => {
     
     const handleFileChosen = (file) => {
         let fileReader = new FileReader();
         fileReader.onload = () => {
             const content = fileReader.result;
-            console.log(content)
             UploadFile(content)
         }
         fileReader.readAsText(file);
@@ -18,9 +16,8 @@ const FileUploader = () => {
     const UploadFile = async function (data) {
         let content = ipfs.types.Buffer.from(data);
         let results = await ipfs.add(content);
-        let hash = results[0].hash; 
-
-        console.log(hash);
+        let contentID = results[0].hash; 
+        getContentID(contentID);
     }
 
     return (
