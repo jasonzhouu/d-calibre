@@ -33,6 +33,7 @@ class App extends Component {
                             <tr key={item.ISBN}>
                                 <td>{item.ISBN}</td>
                                 <td>{item.contentID}</td>
+                                <td><button>download</button></td>
                             </tr>
                         )
                     })}
