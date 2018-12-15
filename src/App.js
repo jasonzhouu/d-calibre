@@ -7,21 +7,24 @@ class App extends Component {
         super(props)
         this.state = {
             list: booklist,
-            // searchTerm: ""
+            searchTerm: ""
         }
     }
-    // onSearch = (event) => {
-    //     console.log(this.searchTerm)
-    // }
+    onSearch = (event) => {
+        console.log(this.searchTerm)
+    }
     downloadFile = (contentID)=> {
         // TODO: use IPFS API to download file
         console.log(contentID)
     }
+    onChange = (event) => {
+        this.setState({searchTerm: event.target.value})
+    }
     render() {
-        const {list} = this.state;
+        const {searchTerm, list} = this.state;
         return <div className="App">
             <form>
-                <input type="text" />
+                <input type="text" value={searchTerm} onChange={this.onChange} />
                 <button onClick={this.onSearch}>Search</button>
             </form>
             <table border="1">
