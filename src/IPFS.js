@@ -8,6 +8,8 @@ const uploadFileToIPFS = async function (data) {
 }
 
 const downloadFileFromIPFS = (contentID)=> {
+    // TODO: download file from IPFS
+
     // ipfs.get(contentID, function (err, file) {
     //     if (err) {
     //       throw err
