@@ -10,22 +10,21 @@ class App extends Component {
         super(props)
         this.state = {
             list: booklist,
+            searchResult: booklist,
             searchTerm: ""
         }
     }
-    putBookItem = () => {
-        // TODO: use API of NEM to put a new book item
-        console.log('put book item to blockchain')
-    }
     search = () => {
-        console.log(this.state.searchTerm)
+        let searchResult = booklist.filter(item => item.ISBN===this.state.searchTerm)
+        this.setState({searchResult: searchResult})
+        // console.log(this.state.searchTerm)
     }
     onChange = (event) => {
         this.setState({searchTerm: event.target.value})
     }
 
     render() {
-        const {searchTerm, list} = this.state;
+        const {searchTerm, searchResult} = this.state;
         return <div className="App">
             <form>
                 <input type="text" value={searchTerm} onChange={this.onChange} placeholder="Search" />
@@ -39,7 +38,7 @@ class App extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {list.map(item => {
+                    {searchResult.map(item => {
                         return (
                             <tr key={item.ISBN}>
                                 <td>{item.ISBN}</td>
