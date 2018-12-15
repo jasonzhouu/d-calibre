@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FileForm from './FileForm';
 import {getBookList} from './NEM';
 import Table from './Table';
-import Form from './Form';
+import AppBar from './AppBar';
 
 const booklist = getBookList();
 
@@ -16,12 +16,13 @@ class App extends Component {
         }
     }
     search = () => {
-        let searchResult = booklist.filter(item => item.ISBN===this.state.searchTerm)
+        let searchResult = booklist.filter(item => item.ISBN.includes(this.state.searchTerm))
         this.setState({searchResult: searchResult})
     }
     onChange = (event) => {
         let searchTerm = event.target.value
         this.setState({searchTerm: searchTerm})
+        this.search()
         if(searchTerm === '') {
             this.setState({searchResult: this.state.list})
         }
@@ -30,7 +31,7 @@ class App extends Component {
     render() {
         const {searchTerm, searchResult} = this.state;
         return <div className="App">
-            <Form searchTerm={searchTerm} onChange={this.onChange} search={this.search}></Form>
+            <AppBar searchTerm={searchTerm} onChange={this.onChange}></AppBar>
             
             <Table searchResult={searchResult}></Table>
 
