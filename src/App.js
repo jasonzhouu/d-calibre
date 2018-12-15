@@ -31,7 +31,7 @@ class App extends Component {
     }
     render() {
         const {searchTerm, list} = this.state;
-        getBookList();
+        this.getBookList();
         return <div className="App">
             <form>
                 <input type="text" value={searchTerm} onChange={this.onChange} placeholder="Search" />
