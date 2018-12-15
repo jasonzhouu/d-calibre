@@ -4,21 +4,13 @@ const uploadFileToIPFS = async function (data) {
     let content = ipfs.types.Buffer.from(data);
     let results = await ipfs.add(content);
     let contentID = results[0].hash; 
-    return contentID    
+    return contentID
 }
 
 const downloadFileFromIPFS = (contentID)=> {
     // TODO: download file from IPFS
-
-    // ipfs.get(contentID, function (err, file) {
-    //     if (err) {
-    //       throw err
-    //     }
-      
-    //     console.log(file.toString('utf8'))
-    // })
+    
     console.log(`download file of content ID: ${contentID} `)
 }
-
 
 export {ipfs, uploadFileToIPFS, downloadFileFromIPFS}

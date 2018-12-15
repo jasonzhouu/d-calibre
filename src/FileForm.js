@@ -12,7 +12,6 @@ class FileForm extends Component {
     }
 
     addBookItemToBlockchain = () => {
-        // TODO: use API of wan to add book item to blockchain
         writeToNEM(this.state.ISBN, this.state.contentID);
     }
 
