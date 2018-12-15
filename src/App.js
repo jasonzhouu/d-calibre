@@ -13,6 +13,10 @@ class App extends Component {
     // onSearch = (event) => {
     //     console.log(this.searchTerm)
     // }
+    downloadFile = (contentID)=> {
+        // TODO: use IPFS API to download file
+        console.log(contentID)
+    }
     render() {
         const {list} = this.state;
         return <div className="App">
@@ -33,7 +37,7 @@ class App extends Component {
                             <tr key={item.ISBN}>
                                 <td>{item.ISBN}</td>
                                 <td>{item.contentID}</td>
-                                <td><button>download</button></td>
+                                <td><button onClick={()=>this.downloadFile(item.contentID)}>download</button></td>
                             </tr>
                         )
                     })}
