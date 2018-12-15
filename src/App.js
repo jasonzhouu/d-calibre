@@ -20,7 +20,11 @@ class App extends Component {
         // console.log(this.state.searchTerm)
     }
     onChange = (event) => {
-        this.setState({searchTerm: event.target.value})
+        let searchTerm = event.target.value
+        this.setState({searchTerm: searchTerm})
+        if(searchTerm === '') {
+            this.setState({searchResult: this.state.list})
+        }
     }
 
     render() {
