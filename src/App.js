@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FileUploader from './FileUploader'
 
 import booklist from './booklist.json'
 
@@ -26,15 +27,16 @@ class App extends Component {
         // TODO: use IPFS API to download file
         console.log(`download file of content ID: ${contentID} `)
     }
-    onChange = (event) => {
+    onTextInputFormChange = (event) => {
         this.setState({searchTerm: event.target.value})
     }
+
     render() {
         const {searchTerm, list} = this.state;
         this.getBookList();
         return <div className="App">
             <form>
-                <input type="text" value={searchTerm} onChange={this.onChange} placeholder="Search" />
+                <input type="text" value={searchTerm} onChange={this.onTextInputFormChange} placeholder="Search" />
                 <button onClick={this.search} type="button">Search</button>
             </form>
             <table border="1">
@@ -57,10 +59,7 @@ class App extends Component {
                 </tbody>
             </table>
 
-            <div className="custom-file">
-                <input type="file" className="custom-file-input" id="customFile" />
-                <label className="custom-file-label" htmlFor="customFile">Choose file</label>
-            </div>
+            <FileUploader></FileUploader>
         </div>
     }
 }
