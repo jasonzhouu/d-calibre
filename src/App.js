@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FileForm from './FileForm';
 import booklist from './booklist.json'
+import {downloadFileFromIPFS} from './IPFS'
 
 class App extends Component {
     constructor(props) {
@@ -21,10 +22,6 @@ class App extends Component {
     search = () => {
         // TODO: use Goodreads API "Find books by title, author, or ISBN" to search 
         console.log(this.state.searchTerm)
-    }
-    downloadFile = (contentID)=> {
-        // TODO: use IPFS API to download file
-        console.log(`download file of content ID: ${contentID} `)
     }
     onChange = (event) => {
         this.setState({searchTerm: event.target.value})
@@ -51,7 +48,7 @@ class App extends Component {
                             <tr key={item.ISBN}>
                                 <td>{item.ISBN}</td>
                                 <td>{item.contentID}</td>
-                                <td><button onClick={()=>this.downloadFile(item.contentID)}>download</button></td>
+                                <td><button onClick={()=>downloadFileFromIPFS(item.contentID)}>download</button></td>
                             </tr>
                         )
                     })}
