@@ -1,23 +1,12 @@
 import React, { Component } from 'react';
 
-const list = 
-[
-    {
-        ISBN: "3642147631",
-        contentID: "QmSCaRwk2QxKyuZ2cLa1aLkPhNxkierfHpYntCfbJ58vjX"
-    }, 
-    {
-        ISBN: "9781133187813",
-        contentID: "QmcC6EzPyW3RdH1rnxkXDuJdZ7uAGUfzaxqG4odmxPQqZN"
-    }
-]
-
+import booklist from './booklist.json'
 
 class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            list,
+            list: booklist,
             // searchTerm: ""
         }
     }
