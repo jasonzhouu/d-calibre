@@ -11,29 +11,20 @@ class App extends Component {
         super(props)
         this.state = {
             list: booklist,
-            searchResult: booklist,
             searchTerm: ""
         }
-    }
-    search = () => {
-        let searchResult = booklist.filter(item => item.ISBN.includes(this.state.searchTerm))
-        this.setState({searchResult: searchResult})
     }
     onChange = (event) => {
         let searchTerm = event.target.value
         this.setState({searchTerm: searchTerm})
-        this.search()
-        if(searchTerm === '') {
-            this.setState({searchResult: this.state.list})
-        }
     }
 
     render() {
-        const {searchTerm, searchResult} = this.state;
+        const {list, searchTerm} = this.state;
         return <div className="App">
             <AppBar searchTerm={searchTerm} onChange={this.onChange}></AppBar>
             
-            <Table searchResult={searchResult}></Table>
+            <Table list={list} searchTerm={searchTerm}></Table>
 
             <FileForm></FileForm>
         </div>
