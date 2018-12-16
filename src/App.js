@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 import FileForm from './FileForm';
-import {getBookList} from './NEM';
 import Table from './Table';
 import AppBar from './AppBar';
-
-const booklist = getBookList();
+import nemDownload from './nemDownload'
 
 class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            list: booklist,
+            list: [
+                {
+                    "ISBN": "3642147631",
+                    "contentID": "QmSCaRwk2QxKyuZ2cLa1aLkPhNxkierfHpYntCfbJ58vjX"
+                }
+            ],
             searchTerm: ""
         }
+    }
+    componentDidMount(){
+        nemDownload().then(promise => {
+            this.setState({list: promise})
+        })
     }
     onChange = (event) => {
         let searchTerm = event.target.value
