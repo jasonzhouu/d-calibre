@@ -13,7 +13,7 @@ class FileForm extends Component {
 
     addBookItemToBlockchain = () => {
         writeToNEM(this.state.ISBN, this.state.contentID);
-        console.log(`add book of ${this.state.contentID}`)
+        console.log(`add item, ISBN: ${this.state.ISBN}, content ID: ${this.state.contentID}`)
     }
 
     getContentID = (contentID) => {
