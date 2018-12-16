@@ -20,10 +20,45 @@ function updateBook(key, value)
   var transactionEntity = nem.model.transactions.prepare("transferTransaction")(common, transferTransaction, nem.model.network.data.testnet.id)
 
   // nem.model.transactions.send(common, transactionEntity, endpoint).then(window.alert("Success"));
-  nem.model.transactions.send(common, transactionEntity, endpoint);
+  // setTimeout(
+  //   function(){
+  //     nem.model.transactions.send(common, transactionEntity, endpoint).then(
+  //       promise => {
+  //         console.log(promise);
+  //       });
+  //   },2000);
+
+
+
+  nem.com.requests.chain.time(endpoint).then(function (timeStamp) {
+    const ts = Math.floor(timeStamp.receiveTimeStamp / 1000);
+    transactionEntity.timeStamp = ts;
+    const due = 60;
+    transactionEntity.deadline = ts + due * 60;
+    
+    console.log(transactionEntity);
+    
+    nem.model.transactions.send(common, transactionEntity, endpoint).then(function(res){
+      // nem.com.requests.account.transactions.unconfirmed().then(
+      //   promise => {
+      //     let m = promise.data;
+      //     console.log(m);
+
+      // })
+        console.log(res);
+        }, function(err){
+            console.log(err);
+        });
+        
+    }, function (err) {
+        console.error(err);
+    });
+
+
 
   // document.write(transactionEntity);
-  // console.log(transactionEntity);
 }
+
+
 
 export default updateBook;

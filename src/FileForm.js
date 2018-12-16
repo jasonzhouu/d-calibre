@@ -15,7 +15,6 @@ class FileForm extends Component {
     }
 
     addBookItemToBlockchain = () => {
-        // 在文件上传成功之前，不能调用
         writeToNEM(this.state.ISBN, this.state.contentID);
         console.log(`add item, ISBN: ${this.state.ISBN}, content ID: ${this.state.contentID}`)
     }
