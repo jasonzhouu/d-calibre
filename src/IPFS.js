@@ -7,9 +7,8 @@ const uploadFileToIPFS = async function (data) {
     return contentID
 }
 
-const downloadFileFromIPFS = (contentID)=> {
-    // TODO: download file from IPFS
-    
+const downloadFileFromIPFS = (contentID)=> {    
+    contentID = 'QmUSPeP1DVr11RkKSrUtgCdLf67vgYRHBM1XtEQajkfYp5'
     ipfs.cat(contentID, function (err, file) {
         if (err) {
         // throw err
