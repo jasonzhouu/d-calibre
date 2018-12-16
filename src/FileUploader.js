@@ -1,9 +1,11 @@
 import React from 'react';
 import {uploadFileToIPFS} from './IPFS'
 
-const FileUploader = ({getContentID}) => {
+const FileUploader = ({getContentID, startUploadFile}) => {
     
     const handleFileChosen = (file) => {
+        startUploadFile();
+        
         let fileReader = new FileReader();
         fileReader.onload = () => {
             const content = fileReader.result;
