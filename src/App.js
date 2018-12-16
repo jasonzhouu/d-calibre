@@ -10,8 +10,8 @@ class App extends Component {
         this.state = {
             list: [
                 {
-                    "ISBN": "3642147631",
-                    "contentID": "QmSCaRwk2QxKyuZ2cLa1aLkPhNxkierfHpYntCfbJ58vjX"
+                    "ISBN": "",
+                    "contentID": ""
                 }
             ],
             searchTerm: ""
