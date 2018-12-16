@@ -15,11 +15,9 @@ const FileUploader = ({getContentID}) => {
     }
 
     return (
-        <div>
-            <input type='file'
-                   onChange={e => handleFileChosen(e.target.files[0])}
-            />
-        </div>
+        <input type='file'
+                onChange={e => handleFileChosen(e.target.files[0])}
+        />
     )
 
 }
