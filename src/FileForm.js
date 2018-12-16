@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import FileUploader from './FileUploader';
-import {writeToNEM} from './NEM';
+import writeToNEM from './nemPut'
 
 class FileForm extends Component {
     constructor(props){
@@ -13,6 +13,7 @@ class FileForm extends Component {
 
     addBookItemToBlockchain = () => {
         writeToNEM(this.state.ISBN, this.state.contentID);
+        console.log(`add book of ${this.state.contentID}`)
     }
 
     getContentID = (contentID) => {
