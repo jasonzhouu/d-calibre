@@ -7,7 +7,7 @@ function _downloadList()
   var endpoint = nem.model.objects.create('endpoint')(nem.model.nodes.defaultTestnet, nem.model.nodes.defaultPort);
 
   // Create a connector object
-  let address = "TBQHMQAN6Y7IFESKDWVMCTLZRZDXMGXJADZF6PW4";
+  let address = "TAEBUSXPDM3DS4LJA72A2SKXXUQV6QRHCDZTRM57";
   return new Promise(function(resolve){
     nem.com.requests.account.transactions.outgoing(endpoint, address).then(promise => {
     // console.log(promise.data)

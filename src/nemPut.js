@@ -9,7 +9,7 @@ function updateBook(key, value)
   var str_data = JSON.stringify(data);
 
   // Get an empty object
-  var common = nem.model.objects.create('common')('HelloWorld', 'a54443deac424823a6b4b9c33fe6919338ef31ab0c42821e4d986075a38ecd1d');
+  var common = nem.model.objects.create('common')('hello-NEM', 'faa34885705a959cfe998dfac805ad9a0f5ae4accbda63b900d76c743eb4e4d9');
   // Create an object with parameters
   var endpoint = nem.model.objects.create('endpoint')(nem.model.nodes.defaultTestnet, nem.model.nodes.defaultPort);
 

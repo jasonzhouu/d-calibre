@@ -7,7 +7,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {downloadFileFromIPFS} from './IPFS'
+// import {downloadFileFromIPFS} from './IPFS'
+// import {downloadFileWithJSIPFS} from './js-ipfs'
 
 const styles = theme => ({
   root: {
@@ -42,7 +43,8 @@ function SimpleTable({classes, list, searchTerm}) {
                         </TableCell>
                         <TableCell numeric>{item.contentID}</TableCell>
                         <TableCell numeric>
-                            <button onClick={()=>downloadFileFromIPFS(item.contentID)}>download</button>
+                            <a href={`http://zhouys.xyz/ipfs/${item.contentID}`}>download</a>
+                            {/* <button onClick={()=>downloadFileWithJSIPFS(item.contentID)}>download</button> */}
                         </TableCell>
                     </TableRow>
                     );
